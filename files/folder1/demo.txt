@@ -1,0 +1,18 @@
+ject\Eclipse\Ngram\src\test\java\hust\tools\ngram\io\ObjectNGramModelWriterTest.java	总行数：14    空行数：5    注释行数：0    代码行数：9
+
+48:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\io\TextFileNGramCountWriterTest.java	总行数：31    空行数：9    注释行数：0    代码行数：22
+49:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\io\TextFileNGramModelWriterTest.java	总行数：32    空行数：7    注释行数：0    代码行数：25
+50:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\model\CharacterTagGram.java	总行数：78    空行数：12    注释行数：0    代码行数：66
+51:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\model\CharacterTagGramTest.java	总行数：60    空行数：14    注释行数：0    代码行数：46
+
+52:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\model\NGramCounterTest.java	总行数：160    空行数：19    注释行数：35    代码行数：106
+53:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\model\NGramLanguageModelTest.java	总行数：41    空行数：10    注释行数：0    代码行数：31
+
+54:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\model\NGramTest.java	总行数：109    空行数：20    注释行数：0    代码行数：89
+55:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\model\StringGramTest.java	总行数：53    空行数：11    注释行数：0    代码行数：42
+56:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\utils\NGramGeneratorTest.java	总行数：55    空行数：11    注释行数：0    代码行数：44
+
+
+57:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\utils\StringGramStream.java	总行数：38    空行数：8    注释行数：8    代码行数：22
+58:	E:\Project\Eclipse\Ngram\src\test\java\hust\tools\ngram\utils\StringGramStreamTest.java	总行数：56    空行数：14    注释行数：0    代码行数：42
+总行数：3876    空行数：702    注释行数：985    代码行数：2189

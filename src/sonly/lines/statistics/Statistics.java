@@ -4,17 +4,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
 /**
  *<ul>
- *<li>Description: 统计代码中的行数：<br>
- *空行<br>
- *“//和“/*”注释行<br>
- *代码行 <br>
+ *<li>Description: 统计代码中的行数：空行、注释行、代码行
  *<li>Company: HUST
  *<li>@author Sonly
  *<li>Date: 2017年7月28日
@@ -25,11 +21,12 @@ public class Statistics {
 	/**
 	 * 文件编号
 	 */
-	static int line_no = 1;
+	private int line_no = 1;
+	
 	/**
 	 * 存放文件绝对路径的链表
 	 */
-	static List<String> list_files = new LinkedList<>();
+	private List<String> list_files = new LinkedList<>();
 	
 	/**
 	 * 存放所有文件总行数的数组
@@ -37,14 +34,25 @@ public class Statistics {
 	 * 1-注释总行数
 	 * 2-代码总行数
 	 */
-	static int[] total_lines = new int[3];
+	int[] total_lines = new int[3];
+	
+	/**
+	 * 存放所有文件总行数的数组
+	 * 0-空行总行数
+	 * 1-注释总行数
+	 * 2-代码总行数 
+	 * @return 所有文件总行数的数组
+	 */
+	public int[] getTotal_lines() {
+		return total_lines;
+	}
 	
 	/**
 	 * 返回int型数组的和
 	 * @param temp待求和的数组
 	 * @return int型数组的和
 	 */
-	private static int getTotal(int[] temp){
+	public int getTotal(int[] temp){
 		int result = 0;
 		for(int num : temp)
 			result += num;
@@ -58,7 +66,7 @@ public class Statistics {
 	 * @param regExp 正则表达式，过滤文件
 	 * @return 所有文件夹中的文件
 	 */
-	private static List<String> traverseFolder(String path, List<String> fileTypes) {
+	public List<String> traverseFolder(String path, List<String> fileTypes) {
 		File file = new File(path);
 
 		if (file.exists()) {
@@ -80,12 +88,12 @@ public class Statistics {
 	}
 	
 	/**
-	 * 统计文件中的行数，并返回代码净行数
-	 * @param javaFile 待统计的文件
-	 * @return 文件中的净行数
+	 * 统计文件中的行数，并返回代码行数数组｛0-空行数，1-注释行数，2-代码行数｝
+	 * @param filePath 待统计的文件路径
+	 * @return 文件中的行数数组｛0-空行数，1-注释行数，2-代码行数｝
 	 * @throws IOException
 	 */
-	private static void statCodeLineNumber(String filePath) throws IOException {  	       
+	public int[] statCodeLineNumber(String filePath) throws IOException {  	       
 		FileReader fileR = new FileReader(new File(filePath));  
 		BufferedReader br = new BufferedReader(fileR);  
 	    int[] lines = new int[3];
@@ -121,29 +129,24 @@ public class Statistics {
 		}//读取结束
 		br.close();
 		
-		System.out.println(line_no+++":\t"+filePath+":"+getTotal(lines));
+		System.out.print(line_no+++":\t"+filePath+"\t");
+		show(lines);
 		
 		for(int index = 0; index < 3; index++) {
 			total_lines[index] += lines[index];
 		}
+		
+		return lines;
 	}  
 	
-	private static void show() {
-		System.out.println(list_files.size()+"个文件:\n\t总行数："+getTotal(total_lines)+
-						   "\n\t空行数："+total_lines[0] +
-						   "\n\t注释行数："+total_lines[1]+
-						   "\n\t代码行数："+total_lines[2]);
-	}
-	
-	public static void main(String[] args) throws IOException {
-		String path = "E:\\Project\\Eclipse\\Ngram\\src";
-		List<String> fileTypes = new ArrayList<>();
-		fileTypes.add(".java");
-		
-		List<String> list = traverseFolder(path, fileTypes);
-		for(String file : list) 
-			statCodeLineNumber(file);
-		
-		show();
+	/**
+	 * 打印int型数组的信息，以四个空格隔开
+	 * @param total_lines 待打印的信息
+	 */
+	public void show(int[] total_lines) {
+		System.out.println("总行数："+getTotal(total_lines)+
+						   "    空行数："+total_lines[0] +
+						   "    注释行数："+total_lines[1]+
+						   "    代码行数："+total_lines[2]);
 	}
 }

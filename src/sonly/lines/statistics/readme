@@ -1,0 +1,37 @@
+	
+求所有代码文件中的行数信息，包括空行、注释行和代码行
+源码：	Statistics.java
+单元测试：	Client.java
+jar包已经放在lib文件夹中，导入方式：import sonly.lines.statistics.*;
+源码中的方法如下：
+
+	/**
+	 * 递归搜索给定文件夹下所有的文件 ,并筛选所需文件
+	 * @param path 文件所在文件夹
+	 * @param fileTypes 文件类型（后缀）
+	 * @return 所有文件夹中所需类型的文件
+	 */
+	public List<String> traverseFolder(String path, 
+		List<String> fileTypes) {...}
+	
+	/**
+	 * 统计文件中的行数，并返回代码行数数组｛0-空行数，1-注释行数，2-代码行数｝
+	 * @param filePath 待统计的文件路径
+	 * @return 文件中的行数数组｛0-空行数，1-注释行数，2-代码行数｝
+	 * @throws IOException
+	 */
+	public int[] statCodeLineNumber(String filePath) 
+		throws IOException {...}
+	
+	/**
+	 * 打印int型数组的信息，以四个空格隔开
+	 * @param total_lines 待打印的信息
+	 */
+	public void show(int[] total_lines) {...}
+	
+	/**
+	 * 返回int型数组的和
+	 * @param temp待求和的数组
+	 * @return int型数组的和
+	 */
+	public int getTotal(int[] temp){
